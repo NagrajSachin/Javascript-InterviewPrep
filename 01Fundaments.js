@@ -134,3 +134,31 @@ const boardPassengers = function (n, wait) {
 }
 
 boardPassengers(180, 3);
+
+// 7. Function - A piece of code that we can reuse over and over again in our code. (DRY Principle)
+
+// Function declaration - function can be invoked before it's declaration. Hosting allows this.
+function calcAge1(birthYear) {
+    return 2037 - birthYear;
+}
+
+// Function expression - Essentially a function value stored in a variable. Function cannot be invoked before declaration, Hosting doesn't allow because variables are hoisted as undefined before initialization.
+const calcAge2 = function (birthYear) {
+    return 2037 - birthYear;
+}
+
+// Arrow function - Great for a quick one-line functions. (Has no this keyword)
+const calcAge3 = birthYear => 2037 - birthYear;
+
+// Default Parameters
+const createBooking = function (flightNum, numPassengers = 1, price = 199) {
+    const booking = {
+        flightNum,
+        numPassengers,
+        price,
+    };
+
+    bookings.push(booking); // [{ flightNum: 'LH123', numPassengers: 1, price: 199}]
+}
+
+createBooking('LH123');
