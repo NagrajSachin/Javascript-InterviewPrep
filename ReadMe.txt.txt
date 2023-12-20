@@ -6,12 +6,13 @@ Topics to prepare for interview:
 4.ES6 Features: Arrow Functions, destructuring, spread / rest operators and template literals.  - Done
 5.Data Structures: Arrays, Objects, maps, and sets are essential. - Done
 6.Functional Programming: Concepts like map, filter and reduce are valuable. - Done
-7.Error Handling: Learn how to handle errors gracefully with try...catch.
+7.AJAX and Fetch API: Learn how to make asynchronous HTTP requests. - Done
 8.JSON: Understand JSON parsing and stringify. - Done
-9.Prototypes and Classes: Understand Javascript's prototypal inheritance and ES6 Classes.
-10.Module Systems: Explore CommonJS, AMD, and ES6 modules.
-11.AJAX and Fetch API: Learn how to make asynchronous HTTP requests.
-12.Async Javascript: Promises and async/await for handling asynchronous operations. - Inprogress
+9.Module Systems: Explore CommonJS, AMD, and ES6 modules. - Done
+10.Async Javascript: Promises and async/await for handling asynchronous operations. - Done
+11.Error Handling: Learn how to handle errors gracefully with try...catch. - Done
+12.Prototypes and Classes: Understand Javascript's prototypal inheritance and ES6 Classes. - TBC
+
 13.DOM Manipulation: Know how to interact with the Document Object Model (DOM) effectively.
 14.Event Handling: Learn about event listeners, event delegationand the event object.
 15.Design Patterns: Know the most common patterns like Singleton, Observer, and Module.
@@ -20,4 +21,3 @@ Topics to prepare for interview:
 18.Debugging: Proviciency with browser developer tools is a must.
 19.ESLint and Code Style: Adhere to clean code practices.
 20.Progressive Web Apps(PWAs): Understand PWA concpets and service workers.
-

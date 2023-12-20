@@ -1,27 +1,25 @@
 // 1. Javascript is a intepreted or (just-in-time complied), object-oriented, high-level, single-threaded, dynamic programming language.
 // It is most well-known as the scripting language for Web pages, JavaScript can run on both web browsers and servers. A popular JavaScript server-side environment is Node.js.
 
-// object-oriented: Based on objects, for storing most kinds of data
-// high-level: we don't have to worry about complex stuff like memory management.
-// single-threaded: Single threaded processes contain the execution of instructions in a single sequence
-// dynamic language: programming language which allows Run-time modification
+// Object-oriented: Based on objects, for storing most kinds of data
+// High-level: we don't have to worry about complex stuff like memory management.
+// Single-threaded: Single threaded processes contain the execution of instructions in a single sequence
+// Dynamic language: programming language which allows Run-time modification
 
 // Compilation - Entire code is converted into machine code at once, and written to a binary file that can be executed by a computer.
 // Interpretation - Interpreter runs through the source code and executes it line by line.
 // Just-in-time(JIT) Compilation - Entire code is converted into machine code at once, then executed immediately.
 
-// Javascript Runtime environment
-// JS Engine
-// Web API's
-// Event Loop (Essential for non-blocking concurrency model) - Takes Callback functions from the callback queue and passes it to the call stack to execute.
+// 2. Javascript Runtime environment - Container which includes all the pieces necessary to execute javascript code.
 
-// 2. JS Engine - program that executes javascript code. It contains two things:
-// Call Stack - where our code is being executed using global execution context & execution context for each function
-// Heap - unstructured memory pool which stores objects that our application needs.
+// 2.1 JS Engine - Heart of runtime environment. Program that executes javascript code. It contains two things:
 
+// 2.1.1 Heap - unstructured memory pool which stores objects that our application needs. (Where object are stored in memory)
+
+// 2.1.2 Call Stack - where our code is being executed using global execution context & execution context for each function. (Only one thread of execution. No multitasking)
 // Execution Context - Environment in which a piece of javascript is executed. Stores all necesssary information for some code to be executed.
-// Inside EC are the following:
-// 2.1. Variable Environment - code is scanned for variable declarations, and for each variable a new property is created in the variable environment obeject. 
+
+// Variable Environment - code is scanned for variable declarations, and for each variable a new property is created in the variable environment obeject. 
 // Ex: let, const, var declarations / Functions
 
 // Hoisting - Makes some types of variables acessible / usable in the code before they are actually declared. "Variables are lifted to the top of their scope".
@@ -29,18 +27,27 @@
 // Why TDZ ? - Makes it easier to avoid and catch errors: accessing variables before declaration is bad practice and should be avoided.
 // Why Hoisting ? - Using functions before actual declaration.
 
-// 2.2. Scope Chain - Scope has access to variables from all outer scopes (variable look up).
+// Scope Chain - Scope has access to variables from all outer scopes (variable look up).
 
 // Scoping: How our program's variables are organized and accessed. "Where do variables live?" or "Where can we access a certain variable, and where not?"
 // Lexical Scoping: Scoping is controlled by placement of functions and blocks in the code.
 // Scope: Space or environment in which a certain variable is declared(variable environment in case of functions). There is global scope, function scope, and block scope.
 // Scope of a variable: Region of our code where a certain variable can be accessed.
 
-// 2.3. this keyword - Special variable that is created for every execution context (every function). Takes the value of (points to) the "owner" of the function in which
+// this keyword - Special variable that is created for every execution context (every function). Takes the value of (points to) the "owner" of the function in which
 // the this keyword is used. It is not static. It depends on how the function is called, and its value is only assigned when the function is actually called.
 
 // regular function - "this" keyword points to owner of the function.
 // arrow function - "this" keyword points to the lexical scope (parent function or window object).
+
+// 2.2 Web API's - API's provided to the engine. (fetch() / setTimeout() / DOM())
+
+// 2.3 Call Back Queue - Ready to be executed callback functions (coming from events)
+// 2.4 MicroTasks Queue - Like callback queue, but for callbacks related to promises has priority over callback queue.
+
+// 2.4 Event Loop (Essential for non-blocking concurrency model) 
+// Takes Callback functions from the callback queue and passes it to the call stack to execute.
+// Decides when each callback is executed: orchestration
 
 // 3. Variables - are the names that assign to computer memory locations where values are stored in it. Variables can represent any type of data.
 
@@ -435,4 +442,49 @@ let userString3 = JSON.stringify(userObject2);
   
 console.log(userString3); // Output: {"name":"Sammy","email":"sammy@example.com","plan":"Pro"}
 
-// 11. Async Javascript 
+// 11. Module Systems: Explore CommonJS, AMD, and ES6 modules
+
+// Module - It is a reusable piece of code that encapsulates implementation details and exposes a public API.
+
+// Module Exports - Syntax by which we can define a module / export a module / import a module.
+
+// AMD (Asynchronous Module Definition)
+// export - define
+// import - require
+
+// CommonJS 
+// export - exports
+// import - require
+
+// ES2015 module format
+// export - export
+// import - import
+
+// 11. Asynchronous Javascript
+// It is executed after a task that runs in the background finishes.
+// Asynchronous code is non-blocking.
+// Execution doesn't wait for an asynchronous task to finish its work. 
+
+// 12. AJAX - Asynchronous Javascript And XML
+// Allows us to communicate with remote web servers in an asynchronous way.
+// With AJAX calls, we can request data from web servers dynamically.
+
+// 13. Promise - An object that is used as a placeholder for the future result of an asynchronous operation.
+// why do we use promises ?
+// Instead of nesting callbacks, we can chain promises for a sequence of asynchronous operations escaping callback hell.
+// promise lifecycle - pending / rejected / fulfilled.
+
+// .then - It's callback method will be called when the promise is fulfilled.
+// .catch - It's callback method will be called when the promise is rejected.
+// async - The word “async” before a function means one simple thing: a function always returns a promise.
+// await - The keyword await makes JavaScript wait until that promise settles and returns its result.
+// try - The try statement allows you to define a block of code to be tested for errors while it is being executed.
+// catch - The catch statement allows you to define a block of code to be executed, if an error occurs in the try block.
+// .finally - It's callback method will be called regardless of promise being fulfilled or rejected.
+
+// Throwing Errors Manually - Terminates the then handler and propogates to catch block and excutes it's callback.
+// if (!response.ok) {
+//   throw new Error('Data Not Found!', response.status);
+// }
+
+// 14. Prototypes and Classes
