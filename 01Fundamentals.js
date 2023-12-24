@@ -1,5 +1,6 @@
 // 1. Javascript is a intepreted or (just-in-time complied), object-oriented, high-level, single-threaded, dynamic programming language.
-// It is most well-known as the scripting language for Web pages, JavaScript can run on both web browsers and servers. A popular JavaScript server-side environment is Node.js.
+// It is most well-known as the scripting language for Web pages, JavaScript can run on both web browsers and servers.
+// A popular JavaScript server-side environment is Node.js.
 
 // Object-oriented: Based on objects, for storing most kinds of data
 // High-level: we don't have to worry about complex stuff like memory management.
@@ -20,25 +21,98 @@
 // Execution Context - Environment in which a piece of javascript is executed. Stores all necesssary information for some code to be executed.
 
 // Variable Environment - code is scanned for variable declarations, and for each variable a new property is created in the variable environment obeject. 
-// Ex: let, const, var declarations / Functions
-
-// Hoisting - Makes some types of variables acessible / usable in the code before they are actually declared. "Variables are lifted to the top of their scope".
-// Temporal Dead Zone - Each and every let & const variable get their own temporal dead zone that starts at the beginning of the scope until the line where it is defined.
-// Why TDZ ? - Makes it easier to avoid and catch errors: accessing variables before declaration is bad practice and should be avoided.
-// Why Hoisting ? - Using functions before actual declaration.
+// It contains: let, const, var declarations / Functions / arguments object
 
 // Scope Chain - Scope has access to variables from all outer scopes (variable look up).
 
 // Scoping: How our program's variables are organized and accessed. "Where do variables live?" or "Where can we access a certain variable, and where not?"
+
 // Lexical Scoping: Scoping is controlled by placement of functions and blocks in the code.
+
 // Scope: Space or environment in which a certain variable is declared(variable environment in case of functions). There is global scope, function scope, and block scope.
+
 // Scope of a variable: Region of our code where a certain variable can be accessed.
+
+// Example: 
+
+const myName = 'Jonas';
+
+function first() {
+    const age = 30;
+
+    // let and const are block-scoped
+    if (age >= 30) {
+        const decade = 3;
+        // var is function-scoped
+        var millenial = true;
+    }
+
+    function second() {
+        const job = 'teacher';
+        console.log(`${myName} is a ${age}- old ${job}`);
+        // Jonas is a 30-old teacher
+    }
+
+    second();
+}
+
+first();
+
+// Hoisting - Makes some types of variables acessible / usable in the code before they are actually declared. "Variables are lifted to the top of their scope".
+
+// Temporal Dead Zone - Each and every let & const variable get their own temporal dead zone that starts at the beginning of the scope until the line where it is defined.
+
+/* Example
+const myName = 'Jonas';
+
+if (myName === 'Jonas') {
+    // Temporal dead zone for job variable
+    console.log(`Jonas is a ${job}`);  -- ReferenceError: Cannot access 'job' before initialization
+    const age = 2037 - 1989;
+    console.log(age);
+
+    const job = 'teacher';
+    console.log(x); -- ReferenceError: x is not defined
+} 
+*/
+
+// Why TDZ ? - Makes it easier to avoid and catch errors: accessing variables before declaration is bad practice and should be avoided.
+
+// Why Hoisting ? - Using functions before actual declaration.
+
+/* Example
+
+// Variables
+console.log(me);  -- undefined
+console.log(job); -- ReferenceError: Cannot access 'job' before initialization
+console.log(year); -- ReferenceError: Cannot access 'year' before initialization
+
+var me = 'Jonas';
+let job = 'teacher';
+const year = 1991;
+
+// functions
+console.log(addDecl(2, 3));  -- 5
+console.log(addExpr(2, 3)); -- ReferenceError: Cannot access 'addExpr' before initialization
+console.log(addArrow(2, 3)); -- TypeError: addArrow is not a function
+
+function addDecl(a, b) {
+    return a + b;
+}
+
+const addExpr = function (a, b) {
+    return a + b;
+}
+
+const addArrow = (a, b) => a + b;
+
+*/
 
 // this keyword - Special variable that is created for every execution context (every function). Takes the value of (points to) the "owner" of the function in which
 // the this keyword is used. It is not static. It depends on how the function is called, and its value is only assigned when the function is actually called.
 
 // regular function - "this" keyword points to owner of the function.
-// arrow function - "this" keyword points to the lexical scope (parent function or window object).
+// arrow function - It doesn't have agruments object & "this" keyword of its own. "this" keyword points to the lexical scope (parent function or window object).
 
 // 2.2 Web API's - API's provided to the engine. (fetch() / setTimeout() / DOM())
 
