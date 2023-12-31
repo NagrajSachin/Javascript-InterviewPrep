@@ -35,28 +35,28 @@
 
 // Example: 
 
-const myName = 'Jonas';
+// const myName = 'Jonas';
 
-function first() {
-    const age = 30;
+// function first() {
+//     const age = 30;
 
-    // let and const are block-scoped
-    if (age >= 30) {
-        const decade = 3;
-        // var is function-scoped
-        var millenial = true;
-    }
+//     // let and const are block-scoped
+//     if (age >= 30) {
+//         const decade = 3;
+//         // var is function-scoped
+//         var millenial = true;
+//     }
 
-    function second() {
-        const job = 'teacher';
-        console.log(`${myName} is a ${age}- old ${job}`);
-        // Jonas is a 30-old teacher
-    }
+//     function second() {
+//         const job = 'teacher';
+//         console.log(`${myName} is a ${age}- old ${job}`);
+//         // Jonas is a 30-old teacher
+//     }
 
-    second();
-}
+//     second();
+// }
 
-first();
+// first();
 
 // Hoisting - Makes some types of variables acessible / usable in the code before they are actually declared. "Variables are lifted to the top of their scope".
 
@@ -156,77 +156,77 @@ const addArrow = (a, b) => a + b;
 // 6. Function - A piece of code that we can reuse over and over again in our code. (DRY Principle)
 
 // 6.1 Function declaration - function can be invoked before it's declaration. Hosting allows this.
-function calcAge1(birthYear) {
-    return 2037 - birthYear;
-}
+// function calcAge1(birthYear) {
+//     return 2037 - birthYear;
+// }
 
 // 6.2 Function expression - Essentially a function value stored in a variable. Function cannot be invoked before declaration, Hosting doesn't allow because variables are hoisted as undefined before initialization.
-const calcAge2 = function (birthYear) {
-    return 2037 - birthYear;
-}
+// const calcAge2 = function (birthYear) {
+//     return 2037 - birthYear;
+// }
 
 // 6.3 Arrow function - Great for a quick one-line functions. (Has no this keyword)
-const calcAge3 = birthYear => 2037 - birthYear;
+// const calcAge3 = birthYear => 2037 - birthYear;
 
 // 6.4 Default Parameters
-const createBooking = function (flightNum, numPassengers = 1, price = 199) {
-    const booking = {
-        flightNum,
-        numPassengers,
-        price,
-    };
+// const createBooking = function (flightNum, numPassengers = 1, price = 199) {
+//     const booking = {
+//         flightNum,
+//         numPassengers,
+//         price,
+//     };
 
-    bookings.push(booking); // [{ flightNum: 'LH123', numPassengers: 1, price: 199}]
-}
+//     bookings.push(booking); // [{ flightNum: 'LH123', numPassengers: 1, price: 199}]
+// }
 
-createBooking('LH123');
+// createBooking('LH123');
 
 // 6.5 First Class Functions - store functions in variables / properties or Pass functions as arguments to OTHER functions
-const add = (a, b) => a + b;
+// const add = (a, b) => a + b;
 
-const counter = {
-    value: 23,
-    inc: function () { this.value++; }
-}
+// const counter = {
+//     value: 23,
+//     inc: function () { this.value++; }
+// }
 
-const greet = () => console.log('Hey Jonas');
-btnClose.addEventListener('click', greet);
+// const greet = () => console.log('Hey Jonas');
+// btnClose.addEventListener('click', greet);
 
 // 6.6 Higher Order Functions - function that receives another function / function that returns new function
-function count() {  // Higher Order Function
-    let counter = 0;
-    return function() { // Returned Function
-        counter++;
-    }
-}
+// function count() {  // Higher Order Function
+//     let counter = 0;
+//     return function() { // Returned Function
+//         counter++;
+//     }
+// }
 
 // 6.7 Functions Accepting Callback Functions
-const upperFirstWord = function (str) {
-    const [first, ...others] = str.split(' ');
-    return [first.toUpperCase(), ...others].join(' ');
-};
+// const upperFirstWord = function (str) {
+//     const [first, ...others] = str.split(' ');
+//     return [first.toUpperCase(), ...others].join(' ');
+// };
 
 // Higher Order Function
-const transformer = function (str, fn) {
-    console.log(`Original String: ${str}`);
-    console.log(`Transformed String: ${fn(str)}`);
-    console.log(`Transformed by: ${fn.name}`);
-};
+// const transformer = function (str, fn) {
+//     console.log(`Original String: ${str}`);
+//     console.log(`Transformed String: ${fn(str)}`);
+//     console.log(`Transformed by: ${fn.name}`);
+// };
 
-transformer('Javascript is the best!', upperFirstWord);
+// transformer('Javascript is the best!', upperFirstWord);
 
 // 6.8 Function returning function
-const greeting = function (greeting) {
-    return function (name) {
-        console.log(`${greeting} ${name}`);
-    }
-}
+// const greeting = function (greeting) {
+//     return function (name) {
+//         console.log(`${greeting} ${name}`);
+//     }
+// }
 
-const greetHey = greeting('Hey');
-greetHey('Jonas');
-greetHey('Steve');
+// const greetHey = greeting('Hey');
+// greetHey('Jonas');
+// greetHey('Steve');
 
-greeting('Hey')('Sachin');
+// greeting('Hey')('Sachin');
 
 // 6.9 Call / Apply / Bind Methods
 // Call - The call method is basically used to invoke the function with different this object.
@@ -234,48 +234,48 @@ greeting('Hey')('Sachin');
 // Bind - The bind() method creates a new function and when that new function is called, it set this keyword to the first argument which is passed to the bind method.
 //        sequences of arguments are passed to the new function when the new function is called.
 
-const luftansa = {
-    airline: 'Lufthansa',
-    iataCode: 'LH',
-    bookings: [],
-    book: function (flightNum, name) {
-        console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
-        this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
-    }
-}
+// const luftansa = {
+//     airline: 'Lufthansa',
+//     iataCode: 'LH',
+//     bookings: [],
+//     book: function (flightNum, name) {
+//         console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
+//         this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+//     }
+// }
 
-luftansa.book(239, 'Jonas');
+// luftansa.book(239, 'Jonas');
 
-const eurowings = {
-    airline: 'Eurowings',
-    iataCode: 'EW',
-    bookings: []
-};
+// const eurowings = {
+//     airline: 'Eurowings',
+//     iataCode: 'EW',
+//     bookings: []
+// };
 
-const book = luftansa.book;
+// const book = luftansa.book;
 
-// Does not work
-book(23, 'Sarah');
+// // Does not work
+// book(23, 'Sarah');
 
-// Call Method
-book.call(eurowings, 23, 'Sarah');
+// // Call Method
+// book.call(eurowings, 23, 'Sarah');
 
-// Apply Method
-const flightData = [583, 'George'];
-book.apply(eurowings, flightData);
+// // Apply Method
+// const flightData = [583, 'George'];
+// book.apply(eurowings, flightData);
 
-// Bind Method
-const bookEW = book.bind(eurowings);
-bookEW(64, 'James Bond');
+// // Bind Method
+// const bookEW = book.bind(eurowings);
+// bookEW(64, 'James Bond');
 
 // 6.10 Immediately Invoked Function Expressions (IIFE)
 // Regular Function 
-(function () {
-    console.log('This function will never run again');
-})();
+// (function () {
+//     console.log('This function will never run again');
+// })();
 
-// Arrow Function
-(() => console.log('This function will never run again'))();
+// // Arrow Function
+// (() => console.log('This function will never run again'))();
 
 // 6.11. Closures
 // A function has access to the variable environment (VE) of the execution context in which it was created, even after that execution context is gone. 
@@ -288,88 +288,88 @@ bookEW(64, 'James Bond');
 // A closure makes sure that a function doesn't loose connection to variables that existed at the function's birth place.
 
 // Example - 1
-const secureBooking = function () {
-    let passengerCount = 0;
+// const secureBooking = function () {
+//     let passengerCount = 0;
 
-    return function () {
-        passengerCount++;
-        console.log(`${passengerCount} passengers`);
-    };
-}
+//     return function () {
+//         passengerCount++;
+//         console.log(`${passengerCount} passengers`);
+//     };
+// }
 
-const booker = secureBooking();
+// const booker = secureBooking();
 
-booker(); // 1 passengers
-booker(); // 2 passengers
+// booker(); // 1 passengers
+// booker(); // 2 passengers
 
-// Example - 2
-let f;
+// // Example - 2
+// let f;
 
-const g = function () {
-    const a = 23;
-    f = function () {
-        console.log(a * 2);
-    };
-};
+// const g = function () {
+//     const a = 23;
+//     f = function () {
+//         console.log(a * 2);
+//     };
+// };
 
-g();
-f();
+// g();
+// f();
 
 // Re-assigning f function
-const h = function () {
-    const b = 777;
-    f = function () {
-        console.log(b * 2);
-    };
-};
+// const h = function () {
+//     const b = 777;
+//     f = function () {
+//         console.log(b * 2);
+//     };
+// };
 
-h();
-f();
+// h();
+// f();
 
-// Example - 3
-const boardPassengers = function (n, wait) {
-    const perGroup = n / 3;
+// // Example - 3
+// const boardPassengers = function (n, wait) {
+//     const perGroup = n / 3;
 
-    setTimeout(function () {
-        console.log(`We are now boarding all ${n} passengers`);
-        console.log(`There are 3 groups, each with ${perGroup} passengers`);
-    }, wait * 1000);
+//     setTimeout(function () {
+//         console.log(`We are now boarding all ${n} passengers`);
+//         console.log(`There are 3 groups, each with ${perGroup} passengers`);
+//     }, wait * 1000);
 
-    console.log(`Will start boarding in ${wait} seconds`);
-}
+//     console.log(`Will start boarding in ${wait} seconds`);
+// }
 
-boardPassengers(180, 3);
+// boardPassengers(180, 3);
 
 // 7. Data Structures: Arrays, Objects, maps, and sets (https://programmingwithmosh.com/javascript/js-objects-arrays-maps-and-sets/)
 
 // 7.1 Object - An object is basically a collection of key-value pairs. It can contain properties and methods.
 
 // Example - 1
-const person = { 
-    name: 'John Doe', 
-    city: 'San Francisco', 
-    age: 28,
-    fullName: function () {
-        return `${this.name} is the full name`;
-    }
-};
+// const person = { 
+//     name: 'John Doe', 
+//     city: 'San Francisco', 
+//     age: 28,
+//     fullName: function () {
+//         return `${this.name} is the full name`;
+//     }
+// };
 
 // 7.2 Map - Maps also allow us to create a collection of key-value pairs. To create a map instance, you need to use the Map constructor. 
 // Similarly, all operations that can be performed on a map are available as methods, such as set, get, has and forEach.
 
-const objectKey1 = {};
-const objectKey2 = 321;
+// const objectKey1 = {};
+// const objectKey2 = 321;
 
-const map = new Map();
-map.set(objectKey1, 'this is the value of the first item');
-map.set(objectKey2, 'this is the value of the second item');
+// const map = new Map();
+// map.set(objectKey1, 'this is the value of the first item');
+// map.set(objectKey2, 'this is the value of the second item');
 
 // retrieving the values of a map is quite easy
-console.log(map.get(objectKey1)); // => 'this is the value of the first item'
-console.log(map.get(objectKey2)); // => 'this is the value of the second item'
+// console.log(map.get(objectKey1)); // => 'this is the value of the first item'
+// console.log(map.get(objectKey2)); // => 'this is the value of the second item'
 
 // Maps are also iteration-friendly
-map.forEach((value, key) => console.log('Key:', key, 'value:', value));
+// map.forEach((value, key) => console.log('Key:', key, 'value:', value));
 // => key: {}, value: this is the value of the first item
 // => key: 321, value: this is the value of the second item
 
@@ -379,14 +379,14 @@ map.forEach((value, key) => console.log('Key:', key, 'value:', value));
 
 // 7.3 Array - arrays are collections whose values are indexed by positive numbers, starting from zero
 
-const colors1 = ['red', 'blue', 'black', 'green', 'white'];
-console.log(colors1[0]); //=> "red"
-console.log(colors1[2]); //=> "black"
+// const colors1 = ['red', 'blue', 'black', 'green', 'white'];
+// console.log(colors1[0]); //=> "red"
+// console.log(colors1[2]); //=> "black"
 
 // 7.4 Set - Sets are not meant to be a replacement for arrays. In fact, these two types of collections have a number of significant differences.
 
-const color2 = new Set(['red', 'green', 'blue', 'red', 'blue']);
-console.log(colors2); //=> Set(3) {"red", "green", "blue"}
+// const color2 = new Set(['red', 'green', 'blue', 'red', 'blue']);
+// console.log(colors2); //=> Set(3) {"red", "green", "blue"}
 
 // As you can see, we tried to instantiate a set with repeated values, but this is simply not possible. Sets ensure uniqueness of values.
 
@@ -409,16 +409,16 @@ console.log(colors2); //=> Set(3) {"red", "green", "blue"}
 // 8.1 Arrow functions: They have a shorter syntax compared to traditional function expressions and lexically bind the this value.
 // Arrow functions are especially useful when working with higher-order functions and callbacks.
 
-const sum = (a, b) => a + b;
-console.log(sum(2, 3)); // Output: 5
+// const sum = (a, b) => a + b;
+// console.log(sum(2, 3)); // Output: 5
 
 // 8.2 Template Literals: Template Literals allow for easy string interpolation and multiline strings in JavaScript.
 // They are enclosed by backticks (`) instead of single or double quotes.
 
-const name = 'John';
-const message = `Hello, ${name}!
-This is a multiline string.`;
-console.log(message);
+// const name = 'John';
+// const message = `Hello, ${name}!
+// This is a multiline string.`;
+// console.log(message);
 
 // Template literals support placeholders (${expression}) that can include variables, expressions, or function calls
 // making string manipulation more convenient.
@@ -427,29 +427,29 @@ console.log(message);
 // syntax to unpack values.
 
 // Array Destructuring
-const numbers = [1, 2, 3];
-const [a, b, c] = numbers;
-console.log(a, b, c); // Output: 1 2 3
+// const numbers = [1, 2, 3];
+// const [a, b, c] = numbers;
+// console.log(a, b, c); // Output: 1 2 3
 
 // Object Destructuring
-const person1 = { firstname: 'John', age: 30 };
-const { firstname, age } = person1;
-console.log(name, age); // Output: John 30
+// const person1 = { firstname: 'John', age: 30 };
+// const { firstname, age } = person1;
+// console.log(name, age); // Output: John 30
 
 // 8.4 Spread / Rest operators: The spread operator (...) and rest parameters provide convenient ways to work with arrays and function arguments.
 // The spread operator expands an array into individual elements, while the rest parameter collects multiple function arguments into an array.
 
 // Spread Operator
-const numerics = [1, 2, 3];
-const expanded = [...numerics, 4, 5];
-console.log(expanded); // Output: [1, 2, 3, 4, 5]
+// const numerics = [1, 2, 3];
+// const expanded = [...numerics, 4, 5];
+// console.log(expanded); // Output: [1, 2, 3, 4, 5]
 
-// Rest Parameter
-function sum(...numbers) {
-    return numbers.reduce((acc, curr) => acc + curr, 0);
-}
+// // Rest Parameter
+// function sum(...numbers) {
+//     return numbers.reduce((acc, curr) => acc + curr, 0);
+// }
 
-console.log(sum(1, 2, 3, 4)); // Output: 10
+// console.log(sum(1, 2, 3, 4)); // Output: 10
 
 // 9. Functional Programming
 
@@ -458,18 +458,18 @@ console.log(sum(1, 2, 3, 4)); // Output: 10
 // map() does not execute the function for empty elements
 // map() does not change the original array
 
-var arr = [2, 4, 8, 10];
-var updartedArr = arr.map(val => val + 2);
-console.log(updartedArr); // Output: [4, 6, 10, 12]
+// var arr = [2, 4, 8, 10];
+// var updartedArr = arr.map(val => val + 2);
+// console.log(updartedArr); // Output: [4, 6, 10, 12]
 
 // filter: This method is used to return an array that contains the elements which satisfy the condition applied inside the callback function.
 // filter() method creates a new array filled with elements that pass a test provided by a function
 // filter() does not execute the function for empty elements
 // filter() does not change the original array
 
-var arr= [2,4,8,10] 
-var updatedArr = arr.filter(val=> val<5) 
-console.log(updatedArr); // Output: [2, 4]
+// var arr= [2,4,8,10] 
+// var updatedArr = arr.filter(val=> val<5) 
+// console.log(updatedArr); // Output: [2, 4]
 
 // reduce: This method is used to apply a callback function to each element in an array and return a single element
 // reduce() method executes a reducer function for array element
@@ -477,44 +477,44 @@ console.log(updatedArr); // Output: [2, 4]
 // reduce() does not execute the function for empty elements
 // reduce() does not change the original array
 
-var arr= [2,4,8,10] 
-var updatedArr = arr.reduce((prev, curr)=> curr= prev+curr) 
-console.log(updatedArr); // Output: 24
+// var arr= [2,4,8,10] 
+// var updatedArr = arr.reduce((prev, curr)=> curr= prev+curr) 
+// console.log(updatedArr); // Output: 24
 
 // 10. JSON
 
 // JSON.parse() - takes a JSON string and transforms it into a javascript object
 
-let userString1 = '{"name":"Sammy","email":"sammy@example.com","plan":"Pro"}';
+// let userString1 = '{"name":"Sammy","email":"sammy@example.com","plan":"Pro"}';
 
-let userObj = JSON.parse(userString1);
+// let userObj = JSON.parse(userString1);
 
-console.log(userObj); // Output: { name: 'Sammy', email: 'sammy@example.com', plan: 'Pro' }
+// console.log(userObj); // Output: { name: 'Sammy', email: 'sammy@example.com', plan: 'Pro' }
 
 // JSON.parse() can take a function as a second argument that can transform the object values before they are returned.
 
-let userString2 = '{"name":"Sammy","email":"sammy@example.com","plan":"Pro"}';
+// let userString2 = '{"name":"Sammy","email":"sammy@example.com","plan":"Pro"}';
 
-let userObject1 = JSON.parse(userString2, (key, value) => {
-  if (typeof value === 'string') {
-    return value.toUpperCase();
-  }
-  return value;
-});
+// let userObject1 = JSON.parse(userString2, (key, value) => {
+//   if (typeof value === 'string') {
+//     return value.toUpperCase();
+//   }
+//   return value;
+// });
 
-console.log(userObject1); // Output: { name: 'SAMMY', email: 'SAMMY@EXAMPLE.COM', plan: 'PRO' }
+// console.log(userObject1); // Output: { name: 'SAMMY', email: 'SAMMY@EXAMPLE.COM', plan: 'PRO' }
 
 // JSON.stringify() - takes a JavaScript object and transforms it into a JSON string.
 
-let userObject2 = {
-    name: "Sammy",
-    email: "sammy@example.com",
-    plan: "Pro"
-  };
+// let userObject2 = {
+//     name: "Sammy",
+//     email: "sammy@example.com",
+//     plan: "Pro"
+//   };
   
-let userString3 = JSON.stringify(userObject2);
+// let userString3 = JSON.stringify(userObject2);
   
-console.log(userString3); // Output: {"name":"Sammy","email":"sammy@example.com","plan":"Pro"}
+// console.log(userString3); // Output: {"name":"Sammy","email":"sammy@example.com","plan":"Pro"}
 
 // 11. Module Systems: Explore CommonJS, AMD, and ES6 modules
 
@@ -561,7 +561,7 @@ console.log(userString3); // Output: {"name":"Sammy","email":"sammy@example.com"
 //   throw new Error('Data Not Found!', response.status);
 // }
 
-// 14. Object Oriented Programming (OOP) with javascript
+// 14. Object Oriented Programming (OOP) with javascript (What is OOP ?)
 
 // Object oriented programming (OOP) is a programming paradigm (Style of code, "How" we write and organize code) based on the concept of objects.
 // We use objects to model (describe) real-world or abstract features (HTML Component or data structure).
@@ -588,8 +588,9 @@ console.log(userString3); // Output: {"name":"Sammy","email":"sammy@example.com"
 // Array.prototype.map();
 // Array.prototype is the prototype of all array objects we create in javascript. Therefore, all arrays have access to the map method.
 
-// How do we actually create prototypes? And how do we link objects to prototypes? How can we create new objects, without having classes?
-// Constructor Functions
+// 14.3 How do we actually create prototypes? And how do we link objects to prototypes? How can we create new objects, without having classes?
+
+// 14.3.1 Constructor Functions ans the new Operator
 
 const Person = function (firstName, birthYear) {
     // Instance Properties
@@ -597,9 +598,9 @@ const Person = function (firstName, birthYear) {
     this.birthYear = birthYear;
 
     // Never do this - instead we go for prototypal inheritance
-    this.calcAge = function () {
-      console.log(2037 - this.birthYear);
-    }
+    // this.calcAge = function () {
+    //   console.log(2037 - this.birthYear);
+    // }
 }
 
 // 1. New {} is created
@@ -610,6 +611,42 @@ const Person = function (firstName, birthYear) {
 const jonas = new Person('Jonas', 1991);
 const matilda = new Person('Matilda', 2017);
 const jack = new Person('Jack', 1975);
+
+console.log(jonas);
+console.log(matilda);
+console.log(jack);
+
+// 14.3.2 Prototypes
+Person.prototype.calcAge = function () {
+    console.log(2037 - this.birthYear);
+}
+
+console.log(Person.prototype);
+
+jonas.calcAge();
+matilda.calcAge();
+jack.calcAge();
+
+console.log(jonas.__proto__);
+console.log(Person.prototype.isPrototypeOf(jonas));
+console.log(Person.prototype.isPrototypeOf(matilda));
+console.log(Person.prototype.isPrototypeOf(jack));
+
+Person.prototype.species = 'Homo Sapiens';
+console.log(jonas.species);
+
+console.log(jonas.__proto__);
+console.log(jonas.__proto__.__proto__); // Object.prototype (top of prototype chain)
+console.log(jonas.__proto__.__proto__.__proto__); // null
+
+const arr = [3, 6, 6, 5, 6, 9, 9]; // new Array
+console.log(arr.__proto__);
+
+Array.prototype.unique = function () {
+    return [...new Set(this)];
+}
+
+console.log(arr.unique());
 
 // ES6 Classes
 // Object.create()
