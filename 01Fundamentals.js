@@ -487,4 +487,55 @@ console.log(userString3); // Output: {"name":"Sammy","email":"sammy@example.com"
 //   throw new Error('Data Not Found!', response.status);
 // }
 
-// 14. Prototypes and Classes
+// 14. Object Oriented Programming (OOP) with javascript
+
+// Object oriented programming (OOP) is a programming paradigm (Style of code, "How" we write and organize code) based on the concept of objects.
+// We use objects to model (describe) real-world or abstract features (HTML Component or data structure).
+// Objects may contain data (properties) and code (methods). By using objects, we pack data and the corresponding behaviour into one block.
+
+// 14.1 Fundamental principles of Object Oriented Programming
+
+// Abstraction - It enables us to represent real-world objects or systems as classes, defining their properties (attributes) and behaviors (methods) while hiding the internal implementation details
+// Encapsulation - Keeping properties and methods private inside the class, so they are not accessible from outside the class. Some methods can be exposed as a public interface (API).
+// Inheritance - Making all properties and methods of a certain class available to a child class, forming a hierarchical relationship between classes.
+// Polymorphism - A child class can overwrite a method it inherited from a parent class.
+
+// 14.2 OOP in Javascript: Prototypes
+
+// Instantiation
+// Objects (instances) are instantiated from a class, which funcions like a blueprint.
+// Behaviour (methods) is copied from a class to all instances.
+
+// Prototypal Inheritance / Delegation
+// Objects are linked to a prototype object.
+// Prototypal inheritance: The prototype contains methods (behaviour) that are accessible to all objects linked to that prototype.
+// Behaviour is delegated to the linked prototype object.
+
+// Array.prototype.map();
+// Array.prototype is the prototype of all array objects we create in javascript. Therefore, all arrays have access to the map method.
+
+// How do we actually create prototypes? And how do we link objects to prototypes? How can we create new objects, without having classes?
+// Constructor Functions
+
+const Person = function (firstName, birthYear) {
+    // Instance Properties
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+
+    // Never do this - instead we go for prototypal inheritance
+    this.calcAge = function () {
+      console.log(2037 - this.birthYear);
+    }
+}
+
+// 1. New {} is created
+// 2. function is called, this = {}
+// 3. {} linked to prototype
+// 4. function automatically return {}
+
+const jonas = new Person('Jonas', 1991);
+const matilda = new Person('Matilda', 2017);
+const jack = new Person('Jack', 1975);
+
+// ES6 Classes
+// Object.create()
